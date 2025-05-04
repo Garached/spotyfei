@@ -15,56 +15,65 @@ import java.util.List;
     // o usuario herda de pessoa
 public class Usuario extends Pessoa {
 
-    private List<Musica> musicasCurtidas;
-    private List<Musica> musicasDescurtidas;
+    private int id;
+    private String nome;
+    private String email;
+    private String senha;
+
     private List<Musica> historicoBuscas;
     private List<Playlist> playlists;
+    private List<Musica> curtidas;
+    private List<Musica> descurtidas;
 
-    // ainda nao tem essas classes 
-    public Usuario(int id, String nome, String email, String senha) {
-        super(id, nome, email, senha);
-        this.musicasCurtidas = new ArrayList<>();
-        this.musicasDescurtidas = new ArrayList<>();
+    public Usuario(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
         this.historicoBuscas = new ArrayList<>();
         this.playlists = new ArrayList<>();
+        this.curtidas = new ArrayList<>();
+        this.descurtidas = new ArrayList<>();
     }
 
-    @Override
-    public boolean login(String email, String senha) {
-        return getEmail().equals(email) && getSenha().equals(senha);
+    public Usuario(int id, String nome, String email, String senha) {
+        this(nome, email, senha);
+        this.id = id;
     }
 
-    //curtir e descurtir músicas
-    public void curtirMusica(Musica musica) {
-        if (!musicasCurtidas.contains(musica)) {
-            musicasCurtidas.add(musica);
-            musicasDescurtidas.remove(musica); //descurtir
-        }
+    // Getters e setters básicos
+    public int getId() {
+        return id;
     }
 
-    public void descurtirMusica(Musica musica) {
-        if (!musicasDescurtidas.contains(musica)) {
-            musicasDescurtidas.add(musica);
-            musicasCurtidas.remove(musica); 
-        }
+    public void setId(int id) {
+        this.id = id;
     }
 
-    // histórico 
-    public void adicionarAoHistorico(Musica musica) {
-        historicoBuscas.add(0, musica); // adiciona musica
-        if (historicoBuscas.size() > 10) {
-            historicoBuscas.remove(historicoBuscas.size() - 1); // remove a mais antiga
-        }
+    public String getNome() {
+        return nome;
     }
 
-    public List<Musica> getMusicasCurtidas() {
-        return musicasCurtidas;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public List<Musica> getMusicasDescurtidas() {
-        return musicasDescurtidas;
+    public String getEmail() {
+        return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    // Listas de uso
     public List<Musica> getHistoricoBuscas() {
         return historicoBuscas;
     }
@@ -72,6 +81,38 @@ public class Usuario extends Pessoa {
     public List<Playlist> getPlaylists() {
         return playlists;
     }
+
+    public List<Musica> getCurtidas() {
+        return curtidas;
+    }
+
+    public List<Musica> getDescurtidas() {
+        return descurtidas;
+    }
+
+    // Métodos para manipular as listas
+    public void adicionarAoHistorico(Musica musica) {
+        if (historicoBuscas.size() >= 10) {
+            historicoBuscas.remove(0);
+        }
+        historicoBuscas.add(musica);
+    }
+
+    public void curtirMusica(Musica musica) {
+        if (!curtidas.contains(musica)) {
+            curtidas.add(musica);
+            descurtidas.remove(musica);
+        }
+    }
+
+    public void descurtirMusica(Musica musica) {
+        if (!descurtidas.contains(musica)) {
+            descurtidas.add(musica);
+            curtidas.remove(musica);
+        }
+    }
+
+    public void adicionarPlaylist(Playlist playlist) {
+        playlists.add(playlist);
+    }
 }
-
-
