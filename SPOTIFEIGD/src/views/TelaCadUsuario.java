@@ -1,8 +1,19 @@
+package views;
+
+import java.awt.Color;
+import java.sql.Connection;
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package spotifei.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,15 +27,11 @@ public class TelaCadUsuario extends javax.swing.JFrame {
  *
  * @author garac
  */
+
+
 public class TelaCadUsuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaCadUsu
-     */
     public TelaCadUsuario() {
-         initComponents();
-        personalizarInterface();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,7 +52,8 @@ public class TelaCadUsuario extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(18, 18, 18));
+        setBackground(new java.awt.Color(255, 102, 102));
+        setForeground(java.awt.Color.white);
 
         jLabel1.setBackground(new java.awt.Color(0, 153, 51));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -80,18 +88,15 @@ public class TelaCadUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(46, 46, 46)
                                 .addComponent(jButton1)))
@@ -107,16 +112,16 @@ public class TelaCadUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap(96, Short.MAX_VALUE))
         );
@@ -179,34 +184,26 @@ public class TelaCadUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
-    private void personalizarInterface() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        getContentPane().setBackground(new java.awt.Color(18, 18, 18)); // fundo escuro
 
-        jTextField1.setText("");
+    private void personalizarInterface() {
+        getContentPane().setBackground(new java.awt.Color(18, 18, 18));
+
         jTextField1.setBackground(new java.awt.Color(40, 40, 40));
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome Completo"));
 
-        jTextField2.setText("");
         jTextField2.setBackground(new java.awt.Color(40, 40, 40));
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
 
-        jTextField3.setText("");
         jTextField3.setBackground(new java.awt.Color(40, 40, 40));
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder("Usuário"));
-
-        jTextField4.setText("");
-        jTextField4.setBackground(new java.awt.Color(40, 40, 40));
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
+        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
         
-        botaoCadastrar.setBackground(new java.awt.Color(30, 215, 96));
-        botaoCadastrar.setForeground(Color.BLACK);
-        botaoCadastrar.setFocusPainted(false);
-        
+        // Configuração do botão jButton1 (antigo botaoCadastrar)
+        jButton1.setBackground(new java.awt.Color(30, 215, 96));
+        jButton1.setForeground(Color.BLACK);
+        jButton1.setFocusPainted(false);
     }
 }
 
