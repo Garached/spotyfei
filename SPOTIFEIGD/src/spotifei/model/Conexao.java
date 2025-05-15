@@ -15,7 +15,6 @@ import java.sql.SQLException;
  */
 
 
-
 public class Conexao {
     private static final String URL = "jdbc:postgresql://localhost:5432/spotifei";
     private static final String USUARIO = "seu_usuario";

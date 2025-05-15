@@ -20,6 +20,45 @@ import java.awt.*;
 
 public class TelaCadUsuario extends javax.swing.JFrame {
 
+        public TelaCadUsuario(JButton cadusu, JTextField emailusu, JTextField nomeusu, JTextField senhausu) {
+            this.cadusu = cadusu;
+            this.emailusu = emailusu;
+            this.nomeusu = nomeusu;
+            this.senhausu = senhausu;
+        }
+
+        public JButton getCadusu() {
+            return cadusu;
+        }
+
+        public void setCadusu(JButton cadusu) {
+            this.cadusu = cadusu;
+        }
+
+        public JTextField getEmailusu() {
+            return emailusu;
+        }
+
+        public void setEmailusu(JTextField emailusu) {
+            this.emailusu = emailusu;
+        }
+
+        public JTextField getNomeusu() {
+            return nomeusu;
+        }
+
+        public void setNomeusu(JTextField nomeusu) {
+            this.nomeusu = nomeusu;
+        }
+
+        public JTextField getSenhausu() {
+            return senhausu;
+        }
+
+        public void setSenhausu(JTextField senhausu) {
+            this.senhausu = senhausu;
+        }
+
     
 
 
@@ -27,12 +66,10 @@ public class TelaCadUsuario extends javax.swing.JFrame {
  *
  * @author garac
  */
-
-
-public class TelaCadUsuario extends javax.swing.JFrame {
-
+        
     public TelaCadUsuario() {
-
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,13 +80,13 @@ public class TelaCadUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nomeusu = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        emailusu = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        senhausu = new javax.swing.JTextField();
+        cadusu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 102, 102));
@@ -61,23 +98,28 @@ public class TelaCadUsuario extends javax.swing.JFrame {
 
         jLabel2.setText("Nome:");
 
-        jLabel3.setText("Usuário");
+        jLabel3.setText("Email");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        emailusu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                emailusuActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Senha");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        senhausu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                senhausuActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Cadastrar");
+        cadusu.setText("Cadastrar");
+        cadusu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadusuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,12 +136,12 @@ public class TelaCadUsuario extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(senhausu, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emailusu, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomeusu, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(46, 46, 46)
-                                .addComponent(jButton1)))
+                                .addComponent(cadusu)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
                 .addContainerGap())
@@ -112,30 +154,38 @@ public class TelaCadUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nomeusu, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emailusu, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(senhausu, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(cadusu)
                 .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void emailusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailusuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_emailusuActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void senhausuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhausuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_senhausuActionPerformed
+
+    private void cadusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadusuActionPerformed
+        String nome = nomeusu.getText();
+        String email = emailusu.getText();
+        String senha = senhausu.getText();
+
+        JOptionPane.showMessageDialog(this, "Cadastro de " + nome + " realizado com sucesso!");
+    }//GEN-LAST:event_cadusuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,56 +224,23 @@ public class TelaCadUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton cadusu;
+    private javax.swing.JTextField emailusu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField nomeusu;
+    private javax.swing.JTextField senhausu;
     // End of variables declaration//GEN-END:variables
 
-
-    private void personalizarInterface() {
-        getContentPane().setBackground(new java.awt.Color(18, 18, 18));
-
-        jTextField1.setBackground(new java.awt.Color(40, 40, 40));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome Completo"));
-
-        jTextField2.setBackground(new java.awt.Color(40, 40, 40));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
-
-        jTextField3.setBackground(new java.awt.Color(40, 40, 40));
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
-        
-        // Configuração do botão jButton1 (antigo botaoCadastrar)
-        jButton1.setBackground(new java.awt.Color(30, 215, 96));
-        jButton1.setForeground(Color.BLACK);
-        jButton1.setFocusPainted(false);
-    }
 }
+    
+  
 
-private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {
-        // Ação do botão Cadastrar
-        String nome = jTextField1.getText();
-        String usuario = jTextField2.getText();
-        String senha = jTextField3.getText();
 
-        JOptionPane.showMessageDialog(this, "Cadastro de " + nome + " realizado com sucesso!");
-        // código gravar os dados 
-    }
 
-    public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaCadUsuario().setVisible(true);
-            }
-        });
-    }
-}
+    
+
 
 
